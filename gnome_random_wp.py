@@ -19,7 +19,7 @@ images_re = re.compile('\.(png|jpg|jpeg|svg|gif)$')
  
 # functions
  def images_in_dir(images_path):
-	"""Returns list of paths to all images found recursively in given folder path"""
+	"""Returns the list of paths to all images found recursively in the given folder"""
 	images = []
 	for path, dirs, files in os.walk(images_path):
 		for filename in files:
@@ -29,7 +29,7 @@ images_re = re.compile('\.(png|jpg|jpeg|svg|gif)$')
  
  
 def set_random_background_image(images):
-	"""Sets a random background choosing from given list of filenames"""
+	"""Sets a random background from the given list of filenames"""
 	filename = random.choice(images)
 	guix = "gconftool-2 -t string -s /desktop/gnome/background/picture_filename '%s'" % str(filename)
 	commands.getstatusoutput(guix)
